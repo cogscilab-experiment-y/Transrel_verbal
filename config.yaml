@@ -1,0 +1,63 @@
+
+# main visual parameters
+screen_color: grey
+text_color: black
+text_size: 28
+
+
+# trials
+trial_time: 10
+
+# training
+do_training: True
+fdbk_training: True
+training_randomize: False
+training_trials: [{n_trials: 2, n_stimulus: 4, correct_answer_type: identical,
+                   incorrect_answers_types: {identical: 0, reversed: 1, distance_1: 1, distance_2: 1}},
+                  {n_trials: 2, n_stimulus: 4, correct_answer_type: reversed,
+                   incorrect_answers_types: {identical: 1, reversed: 0, distance_1: 1, distance_2: 1}}]
+
+# experiment
+fdbk_experiment: True
+experiment_randomize: False
+experiment_trials: [{n_trials: 2, n_stimulus: 4, correct_answer_type: identical,
+                   incorrect_answers_types: {identical: 0, reversed: 1, distance_1: 1, distance_2: 1}},
+                  {n_trials: 2, n_stimulus: 4, correct_answer_type: reversed,
+                   incorrect_answers_types: {identical: 1, reversed: 0, distance_1: 1, distance_2: 1}}]
+
+# fixation point
+fixation_size: 56
+fixation_color: black
+fixation_text: +
+fixation_time: 2
+fixation_pos: [0, 0]
+
+# feedback
+fdbk_correct: Poprawna odpowiedź
+fdbk_incorrect: Błędna odpowiedź
+fdbk_no_answer: Brak odpowiedzi
+fdbk_show_time: 2
+fdbk_color: black
+fdbk_size: 30
+
+# wait
+wait_time: 1.5
+wait_jitter: 1
+
+
+# show extra text during trial
+## example:
+## [{pos: [-270, -250], color: black, size: 40, text: "wprowadź odpowiedź:"}, {pos: [450, -350], color: black, size: 30, text: "zatwierdź enter"}]
+extra_text_to_show: []
+
+# clock
+show_clock: false
+clock_pos: [450, 350]
+clock_size: 60
+clock_show_time: 7
+
+# timer
+show_timer: false
+timer_pos: [600, 350]
+timer_color: black
+timer_size: 60
