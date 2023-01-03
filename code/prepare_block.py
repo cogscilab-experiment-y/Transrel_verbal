@@ -1,10 +1,11 @@
 import random
+from psychopy.visual import Window
 
 from code.trial import Trial
 from code.data import stimulus_category, stimulus_names, stimulus_types
 
 
-def prepare_block(block_info: list, randomize: bool):
+def prepare_block(block_info: list, randomize: bool, config: dict, win: Window):
     trials = []
     for sub_block in block_info:
         for i in range(sub_block["n_trials"]):
@@ -15,18 +16,10 @@ def prepare_block(block_info: list, randomize: bool):
                           stimulus_type_dict=stimulus_type_dict,
                           correct_answer_type=sub_block["correct_answer_type"],
                           incorrect_answers_types=sub_block["incorrect_answers_types"],
-                          stimulus_category=stimulus_category)
+                          stimulus_category=stimulus_cat)
+            trial.prepare_to_draw(config=config, win=win)
             trials.append(trial)
 
     if randomize:
         random.shuffle(trials)
     return trials
-
-
-if __name__ == "__main__":
-    test_block_info = [{"n_trials": 2, "n_stimulus": 4, "correct_answer_type": "identical",
-                        "incorrect_answers_types": {"identical": 0, "reversed": 1, "distance_1": 1, "distance_2": 1}},
-                       {"n_trials": 2, "n_stimulus": 4, "correct_answer_type": "reversed",
-                        "incorrect_answers_types": {'identical': 1, "reversed": 0, "distance_1": 1, "distance_2": 1}}]
-    test_trials = prepare_block(test_block_info, False)
-    [print(trial.get_trail_description()) for trial in test_trials]

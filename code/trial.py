@@ -1,12 +1,14 @@
 import random
 from copy import deepcopy
+from psychopy.visual import Window
 
 from code.pair import Pair
 from code.data import AnswerType
 
 
 class Trial:
-    def __init__(self, stimulus_list: list, stimulus_type_dict: dict, correct_answer_type: str, incorrect_answers_types: dict, stimulus_category: str):
+    def __init__(self, stimulus_list: list, stimulus_type_dict: dict, correct_answer_type: str, incorrect_answers_types: dict,
+                 stimulus_category: str):
         self.stimulus_n = len(stimulus_list)
         self.stimulus_list = stimulus_list
         self.stimulus_type_dict = stimulus_type_dict
@@ -83,6 +85,25 @@ class Trial:
         random.shuffle(self.answers_list)
         self.answers_n = len(self.answers_list)
 
+    def prepare_to_draw(self, config: dict, win: Window):
+        def prepare_list_to_draw(stimulus_list: list, start_pos: list, distance: list, color: str, size: int):
+            pos = [start_pos[0] - (len(stimulus_list) / 2 - 0.5) * distance[0], start_pos[1] - len(stimulus_list) / 2 * distance[1]]
+            for pair in stimulus_list:
+                pair.prepare_to_draw(position=pos, win=win, color=color, size=size)
+                pos[0] += distance[0]
+                pos[1] += distance[1]
+
+        prepare_list_to_draw(stimulus_list=self.clues_list, start_pos=config["clue_pos"], distance=config["clue_dist"],
+                             color=config["stimulus_color"], size=config["clue_size"])
+        prepare_list_to_draw(stimulus_list=self.answers_list, start_pos=config["answer_pos"], distance=config["answer_dist"],
+                             color=config["stimulus_color"], size=config["answer_size"])
+
+    def set_auto_draw(self, flag: bool):
+        for pair in self.clues_list:
+            pair.set_auto_draw(flag)
+        for pair in self.answers_list:
+            pair.set_auto_draw(flag)
+
     def get_trail_description(self):
         return {"stimulus_n": self.stimulus_n,
                 "stimulus_list": self.stimulus_list,
@@ -93,11 +114,3 @@ class Trial:
                 "correct_answer_type": self.correct_answer_type,
                 "incorrect_answers_types": self.incorrect_answers_types,
                 "stimulus_category": self.stimulus_category}
-
-
-if __name__ == "main":
-    stim_list = [1, 2, 3, 4, 5] # list(string.ascii_letters[:4].upper())
-    t = Trial(stimulus_list=stim_list,
-              correct_answer_type=AnswerType.distance_2,
-              incorrect_answers_types={AnswerType.identical: 1, AnswerType.reversed: 1, AnswerType.distance_1: 1, AnswerType.distance_2: 0})
-    print(t.get_trail_description())

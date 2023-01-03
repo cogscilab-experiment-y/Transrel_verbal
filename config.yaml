@@ -4,6 +4,16 @@ screen_color: grey
 text_color: black
 text_size: 28
 
+stimulus_color: black
+reaction_keys: {1: "z", 2: "x", 3: "n", 4: "m"}
+
+clue_size: 28
+clue_pos: [0, 100]
+clue_dist: [0, -50]
+
+answer_size: 20
+answer_pos: [0, -150]
+answer_dist: [300, 0]
 
 # trials
 trial_time: 10
