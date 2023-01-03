@@ -9,7 +9,7 @@ def part_info(test=False):
         info = {'Kod badanego': '', 'Wiek': '20', 'Płeć': 'M'}
     else:
         info = {'Kod badanego': '', 'Wiek': '', 'Płeć': ['M', "K"]}
-        dict_dlg = gui.DlgFromDict(dictionary=info, title='WPR')
+        dict_dlg = gui.DlgFromDict(dictionary=info, title='Transrel werbalny')
         if not dict_dlg.OK:
             exit(1)
     info = {'Part_id': info['Kod badanego'],
