@@ -11,11 +11,11 @@ clue_pos: [0, 100]
 clue_dist: [0, -50]
 
 answer_size: 22
-answer_pos: [0, -150]
-answer_dist: [300, 0]
+answer_pos: [0, -75]
+answer_dist: [310, 0]
 
 # trials
-trial_time: 30
+trial_time: 60
 
 # training
 do_training: True
@@ -37,7 +37,7 @@ experiment_trials: [{n_trials: 9, n_stimulus: 4, correct_answer_type: distance_1
 # fixation point
 fixation_size: 56
 fixation_color: black
-fixation_text: +
+fixation_text: 
 fixation_time: 2
 fixation_pos: [0, 0]
 
@@ -45,13 +45,13 @@ fixation_pos: [0, 0]
 fdbk_correct: Poprawna odpowiedź
 fdbk_incorrect: Błędna odpowiedź
 fdbk_no_answer: Brak odpowiedzi
-fdbk_show_time: 2
+fdbk_show_time: 1
 fdbk_color: black
 fdbk_size: 30
 
 # wait
-wait_time: 1.5
-wait_jitter: 1
+wait_time: 0.5
+wait_jitter: 0
 
 
 # show extra text during trial
@@ -66,7 +66,7 @@ clock_size: 60
 clock_show_time: 7
 
 # timer
-show_timer: true
-timer_pos: [600, 350]
+show_timer: True
+timer_pos: [650, 380]
 timer_color: black
-timer_size: 60
+timer_size: 40
