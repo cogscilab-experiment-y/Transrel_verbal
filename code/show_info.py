@@ -41,7 +41,7 @@ def show_clock(clock_image, trial_clock, config):
 
 def show_timer(timer, trial_clock, config):
     if config["show_timer"]:
-        timer.setText(config["answer_time"] - int(trial_clock.getTime()))
+        timer.setText(config["trial_time"] - int(trial_clock.getTime()))
         timer.draw()
 
 
