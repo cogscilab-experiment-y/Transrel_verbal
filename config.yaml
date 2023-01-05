@@ -30,9 +30,9 @@ training_trials: [{n_trials: 3, n_stimulus: 4, correct_answer_type: distance_1,
 fdbk_experiment: False
 experiment_randomize: False
 experiment_trials: [{n_trials: 9, n_stimulus: 4, correct_answer_type: distance_1,
-                   incorrect_answers_types: {identical: 0, reversed: 1, distance_1: 1, distance_2: 2}},
+                   incorrect_answers_types: {identical: 0, reversed: 0, distance_1: 1, distance_2: 2}},
                   {n_trials: 9, n_stimulus: 4, correct_answer_type: distance_2,
-                   incorrect_answers_types: {identical: 1, reversed: 0, distance_1: 2, distance_2: 1}}]
+                   incorrect_answers_types: {identical: 0, reversed: 0, distance_1: 2, distance_2: 1}}]
 
 # fixation point
 fixation_size: 56
