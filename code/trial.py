@@ -34,6 +34,8 @@ class Trial:
             if random.random() < 0.5:
                 pair.reverse_pair()
             self.clues_list.append(pair)
+        if len(set([pair.symbol for pair in self.clues_list])) == 1:
+            random.choice(self.clues_list).reverse_pair()
         random.shuffle(self.clues_list)
 
     def create_answers_identical(self):

@@ -15,10 +15,10 @@ stimulus_types = {"male": [{"lower": "niższy niż", "higher": "wyższy niż", "
                            {"lower": "chudszy niż", "higher": "grubszy niż", "type_name": "masa"},
                            {"lower": "wolniejszy niż", "higher": "szybszy niż", "type_name": "szybkosc"},
                            {"lower": "głupszy niż", "higher": "mądrzejszy niż", "type_name": "inteligencja"},
-                           {"lower": "biedniejszy niż", "higher": "bogadszy niż", "type_name": "zamoznosc"}],
+                           {"lower": "biedniejszy niż", "higher": "bogatszy niż", "type_name": "zamoznosc"}],
                   "female": [{"lower": "niższa niż", "higher": "wyższa niż", "type_name": "wzrost"},
                              {"lower": "młodsza niż", "higher": "starsza niż", "type_name": "wiek"},
                              {"lower": "chudsza niż", "higher": "grubsza niż", "type_name": "masa"},
                              {"lower": "wolniejsza niż", "higher": "szybsza niż", "type_name": "szybkosc"},
                              {"lower": "głupsza niż", "higher": "mądrzejsza niż", "type_name": "inteligencja"},
-                             {"lower": "biedniejsza niż", "higher": "bogadsza niż", "type_name": "zamoznosc"}]}
+                             {"lower": "biedniejsza niż", "higher": "bogatsza niż", "type_name": "zamoznosc"}]}
