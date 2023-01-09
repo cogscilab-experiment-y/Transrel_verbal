@@ -4,6 +4,7 @@ from psychopy import visual, gui, event, clock
 from os import listdir
 from os.path import join
 
+
 def part_info(test=False):
     if test:
         info = {'Kod badanego': '', 'Wiek': '20', 'Płeć': 'M'}
@@ -29,9 +30,24 @@ def show_info(win, file_name, text_size, text_color, screen_res, insert=''):
     win.flip()
 
 
+def show_image(win, file_name, size, key='f7'):
+    image = visual.ImageStim(win=win, image=file_name, interpolate=True, size=size)
+    image.draw()
+    win.flip()
+    clicked = event.waitKeys(keyList=[key, 'return', 'space'])
+    if clicked == [key]:
+        exit(0)
+    win.flip()
+
+
 def show_instructions(win, config, screen_res, block_type):
     for file in [f for f in listdir("messages") if f.split("_")[1] == block_type]:
-        show_info(win, join('.', 'messages', file), text_color=config["text_color"], text_size=config["text_size"], screen_res=screen_res)
+        if file.endswith("txt"):
+            show_info(win, join('.', 'messages', file), text_color=config["text_color"], text_size=config["text_size"], screen_res=screen_res)
+        elif file.endswith("PNG") or file.endswith("png"):
+            show_image(win, join('.', 'messages', file), list(screen_res.values()))
+        else:
+            raise Exception(f"{file} is incorrect instruction type. Use txt or png")
 
 
 def show_clock(clock_image, trial_clock, config):
